@@ -537,7 +537,7 @@ class TCLink( Link ):
                        params1=params,
                        params2=params )
 
-class TCLink1( Link ):
+class AsymTCLink( Link ):
      "Link with potential asymmetric TC interfaces configured via opts"
      def __init__( self, node1, node2, port1=None, port2=None,
                    intfName1=None, intfName2=None,
@@ -551,16 +551,16 @@ class TCLink1( Link ):
              p2 = params['params2']
              del params['params2']
 
-         pars1 = params.copy()
-         pars1.update(p1)
+         par1 = params.copy()
+         par1.update(p1)
 
-         pars2 = params.copy()
-         pars2.update(p2)
+         par2 = params.copy()
+         par2.update(p2)
 
          Link.__init__(self, node1, node2, port1=port1, port2=port2,
                        intfName1=intfName1, intfName2=intfName2,
                        cls1=TCIntf,
                        cls2=TCIntf,
                        addr1=addr1, addr2=addr2,
-                       params1=pars1,
-		       params2=pars2)
+                       params1=par1,
+                       params2=par2)
